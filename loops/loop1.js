@@ -18,3 +18,28 @@
 // 5/3
 // 5/4
 // 5/5 - равны друг другу, запись
+
+
+let arrNum = [];
+
+for(let i = 2; i < 10; i++)
+{
+    let isFlag = false;
+    
+    for (let j = 2; j < 10; j++)
+    {
+        if (i % j === 0 && i !== j) 
+        {
+            isFlag = true;
+            console.log(`${i} and ${j} in if`)
+            break;
+        }
+        else if (i === j && isFlag === false)
+        {
+            arrNum.push(i);
+            break;
+        }
+    }
+}
+
+console.log(arrNum);
