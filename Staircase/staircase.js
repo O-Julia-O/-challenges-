@@ -14,17 +14,19 @@ function printStaircase(n) {
     for (let i = 1; i <= n; i++)
     {
         let line = "";
-        let spacesCount = n-i;
-        let hashesCount = i;
 
-        for (let j = 0; j < spacesCount; j++)
+        for (let j = 1; j <= n; j++)
         {
-            line += " ";
-        }
 
-        for (let j = 0; j < hashesCount; j++)
-        {
-            line += "#";
+            /* line += ( j <= n-i ) ? " " : "#" */
+
+            if (j <= n-i) {
+                line += " "
+            }
+            else 
+            {
+                line += "#";
+            }
         }
 
         console.log(line);
