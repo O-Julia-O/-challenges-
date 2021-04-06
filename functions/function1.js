@@ -18,8 +18,14 @@ function checkAge(age) {
 Используя оператор ?
 Используя оператор || */
 
-function checkAge(age) {
+/* function checkAge(age) {
     age = age > 18 || 'Родители рвзрешили?'
     return age
 }
-console.log(checkAge(10))
+console.log(checkAge(10)) */
+
+function checkAge(age) {
+    return age = (age > 18) ? 'Welcome' : 'А родители разрешили?'
+}
+
+console.log(checkAge(30))
