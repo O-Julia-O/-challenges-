@@ -10,27 +10,77 @@ Its base and height are both equal to N. It is drawn using # symbols and spaces.
 
 Write a program that prints a staircase of size N. */
 
-function printStaircase(n) {
+/* #     */
+/* ##    */
+/* ###   */
+
+function printStaircase(typeOfPyramide, n)
+{
+    let processor;
+
+    switch(typeOfPyramide) 
+    {
+        case 1: 
+            processor = calcLeftSide;
+            break;
+        case 2 : 
+            processor = calcRightSide;
+            break;
+        case 3 : 
+            processor = calcFlipRight;
+            break;
+        case 4 : 
+            processor = calcFlipLeft;
+            break;
+        default : 
+            console.log("This type we don't have.")
+            return;
+    }    
+
+    
+    createPyramide(n, processor)
+}
+
+
+function createPyramide(n, processor)
+{
     for (let i = 1; i <= n; i++)
     {
         let line = "";
 
         for (let j = 1; j <= n; j++)
         {
-
-            /* line += ( j <= n-i ) ? " " : "#" */
-
-            if (j <= n-i) {
-                line += " "
-            }
-            else 
-            {
-                line += "#";
-            }
+            line += processor(i, j, n);
         }
 
-        console.log(line);
+        console.log(line)
     }
 }
 
-printStaircase(4);
+function calcFlipLeft(i, j, n)
+{
+    return (j <= n - i + 1) ? "#" : " ";
+}
+
+function calcFlipRight(i, j, n)
+{
+    return (j < i) ? " " : "#";
+}
+
+function calcLeftSide(i, j, n)
+{
+    return (j < i+1) ? "#" : " ";
+}
+
+function calcRightSide(i, j, n)
+{
+    return (j <= n-i ) ? " " : "#";
+}
+
+printStaircase(1, 9);
+printStaircase(2, 4);
+printStaircase(3, 6);
+printStaircase(4, 4);
+printStaircase(5, 4);
+
+
