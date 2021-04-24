@@ -23,4 +23,48 @@
     STUB
 */
 
+let array = [1, 2, 3, 4, 5];
 
+function miniMaxSum(arr) {
+    let max = 0;
+    let min = arr[0];
+
+    for (let i = 0; i < arr.length; i++)
+    {
+        if (max < arr[i])
+        {
+            max = arr[i];
+        }
+
+        if (min > arr[i])
+        {
+            min = arr[i];
+        }
+    }
+
+    console.log(min);
+    console.log(max);
+}
+
+function sumElements(arr) {
+    let arrSums = [];
+    
+
+    for (let i = 0; i < arr.length; i++)
+    {
+        let sum = 0;
+
+        for (let j = 0; j < arr.length; j++)
+        {
+            if (j !== i) {
+                sum += arr[j];
+            }
+        }
+
+        arrSums.push(sum);
+    }
+
+    return arrSums;
+}
+
+console.log(miniMaxSum(sumElements(array)));
